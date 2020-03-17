@@ -50,6 +50,30 @@
     font-family: 'Lato', sans-serif;
     color: darkslategray;
 }
+
   .invisible {
     display: none;
+  }
+  .visible {
+    display: block;
+  }
+
+  .respuesta__contenido {
+    align-items: center;
+  }
+  .respuesta__titulo {
+    text-transform: capitalize;
+  }
+  .respuesta__texto {
+    margin-left: 25px;
+  }
+  .respuesta__habilidades {
+    margin: 5vh; 
+  }
+  .habilidad__texto h3, .habilidad__texto p {
+    margin-bottom: 1rem;
+  }
+  .respuesta__habilidades_centrado {
+    display: flex;
+    justify-content: center;
   }

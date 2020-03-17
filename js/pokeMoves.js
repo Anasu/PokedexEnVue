@@ -1,8 +1,11 @@
 let pokeMoves = {
     template: `
-        <div>
+        <div class="respuesta__movimientos_centrado">
             <!-- usar un v-for -->
-            saludos desde moves
+            <div class="movimiento__texto">\
+                <h3>Nombre Movimiento</h3>
+                <p>Tipo</p>
+            </div>
         </div>
     `,
 }
