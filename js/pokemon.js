@@ -7,7 +7,7 @@ let pokemon = {
             </div>
             <poke-abilities 
                 v-for="ability in objRqstd.abilities"
-                :pokeAbility="ability"
+                :pokeAbility="ability.ability"
                 :key="objRqstd.abilities.name">
                 </poke-abilities>
             <poke-moves></poke-moves>
