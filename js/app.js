@@ -7,26 +7,31 @@ Vue.component('poke-display', {
                     Ingresa el nombre o el número de un pokemon para consultar.
                 </p>
                 <div class="consulta__formulario">
-                    <input type="text" id="pokeInput" class="formulario__info">
-                    <button id="pokeSubmit" class="formulario__boton">Consultar</button>
+                    <input type="text" class="formulario__info" v-model="pokeInput" >
+                    <button id="pokeSubmit" class="formulario__boton" @click="pokeRqst()">Consultar</button>
                 </div>
             </div>
-            <pokemon></pokemon>
+            <pokemon :objRqstd="pokeObj"></pokemon>
         </div>
     `,
     data() {
         return {
-
+            pokeInput: '',
+            pokeObj: {}
         }
     },
     methods: {
         pokeRqst: function() {
             const pagRqst = async _ => {
-                let urlApi = 'https://pokeapi.co/api/v2/pokemon';
-                let res = await fetch(urlApi);
-                let toJson = await res.json();
-    
-                this.charList = toJson.results;
+                try {
+                    let urlApi = `https://pokeapi.co/api/v2/pokemon/${this.pokeInput}`;
+                    let res = await fetch(urlApi);
+                    let toJson = await res.json();
+                    this.pokeObj = toJson;
+                    console.log(this.pokeObj);
+                } catch(err) {
+                    // poner algo de error acá
+                }
             };
             pagRqst();
         }
