@@ -23,12 +23,12 @@ Vue.component('poke-display', {
     methods: {
         pokeRqst: function() {
             const pagRqst = async _ => {
+                this.pokeObj = {};
                 try {
                     let urlApi = `https://pokeapi.co/api/v2/pokemon/${this.pokeInput}`;
                     let res = await fetch(urlApi);
                     let toJson = await res.json();
                     this.pokeObj = toJson;
-                    console.log(this.pokeObj);
                 } catch(err) {
                     // poner algo de error acá
                 }

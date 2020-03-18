@@ -3,16 +3,26 @@ let pokemon = {
         <div class="respuesta">
             <div class="respuesta__titulo">
                 <poke-image :pokeImgUrl="objRqstd.id"></poke-image>
-                <poke-data :pokeName="objRqstd.name" :pokeID="objRqstd.id"></poke-data>
+                <poke-data :pokeName="pokemonName" :pokeID="pokemonID"></poke-data>
             </div>
-            <poke-abilities 
-                v-for="ability in objRqstd.abilities"
-                :pokeAbility="ability.ability"
-                :key="objRqstd.abilities.name">
+            <div class="respuesta__habilidades">
+                <h2>Habilidades:</h2>
+                <poke-abilities 
+                    v-for="ability in abilities"
+                    :pokeAbility="ability.ability"
+                    :key="ability.name">
                 </poke-abilities>
+            </div>
             <poke-moves></poke-moves>
         </div>
     `, 
+    data() {
+        return {
+            abilities: [],
+            pokemonName: '',
+            pokemonID: 0,
+        }
+    },
     components: {
         pokeImage,
         pokeData,
@@ -28,5 +38,9 @@ let pokemon = {
             }
         }
     }, 
-
+    updated() {
+        this.abilities = this.objRqstd.abilities;
+        this.pokemonName = this.objRqstd.name;
+        this.pokemonID = this.objRqstd.id;
+    }
 }
