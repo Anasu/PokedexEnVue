@@ -1,9 +1,15 @@
 let pokeImage = {
     template: `
-        <img src="img/not-found.png" 
-            alt="Pokemon Image" 
-            class="respuesta__imagen"
-            id="pokeImg">
+        <img :src="'https://www.serebii.net/art/th/' + pokeImgUrl + '.png'" 
+            alt="Pokemon Image" >
     `,
-    
+    props: {
+        pokeImgUrl: {
+            type: Number,
+            required: false,
+            default() {
+                return 
+            }
+        }
+    }
 }
