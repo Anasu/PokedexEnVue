@@ -13,12 +13,20 @@ let pokemon = {
                     :key="ability.name">
                 </poke-abilities>
             </div>
-            <poke-moves></poke-moves>
+            <div class="respuesta__movimientos">
+                <h2>Movimientos:</h2>
+                <poke-moves
+                    v-for="move in moves"
+                    :pokeMove="move.move"
+                    :key="move.name">
+                </poke-moves>
+            </div>
         </div>
     `, 
     data() {
         return {
             abilities: [],
+            moves: [],
             pokemonName: '',
             pokemonID: 0,
         }
@@ -40,6 +48,7 @@ let pokemon = {
     }, 
     updated() {
         this.abilities = this.objRqstd.abilities;
+        this.moves = this.objRqstd.moves;
         this.pokemonName = this.objRqstd.name;
         this.pokemonID = this.objRqstd.id;
     }
