@@ -30,7 +30,7 @@ Vue.component('poke-display', {
                     let toJson = await res.json();
                     this.pokeObj = toJson;
                 } catch(err) {
-                    // poner algo de error acá
+                    console.log(err);
                 }
             };
             pagRqst();

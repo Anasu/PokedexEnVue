@@ -1,7 +1,6 @@
 let pokeAbilities = {
     template: `
         <div class="respuesta__habilidades_centrado">
-            <!-- usar un v-for -->
             <div class="habilidad__texto">
                 <h3>{{ name }}</h3>
                 <p>{{ flavorText }}</p>
@@ -50,6 +49,6 @@ let pokeAbilities = {
         };
         urlRqst();
     },
-    
+
 
 }
