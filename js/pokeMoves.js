@@ -32,7 +32,7 @@ let pokeMoves = {
                 let urlMove = this.pokeMove.url;
                 let res = await fetch(urlMove);
                 let toJson = await res.json();
-                console.log(toJson);
+                // console.log(toJson);
                 const langSP = function(json) { 
                     return json.language.name === 'es';
                 }
