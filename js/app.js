@@ -11,13 +11,14 @@ Vue.component('poke-display', {
                     <button id="pokeSubmit" class="formulario__boton" @click="pokeRqst()">Consultar</button>
                 </div>
             </div>
-            <pokemon :objRqstd="pokeObj"></pokemon>
+            <pokemon :objRqstd="pokeObj" :status="pokeStatus"></pokemon>
         </div>
     `,
     data() {
         return {
             pokeInput: '',
-            pokeObj: {}
+            pokeObj: {},
+            pokeStatus: 'hidden',
         }
     },
     methods: {
@@ -26,9 +27,18 @@ Vue.component('poke-display', {
                 this.pokeObj = {};
                 try {
                     let urlApi = `https://pokeapi.co/api/v2/pokemon/${this.pokeInput}`;
+                    this.pokeStatus = 'loading';
                     let res = await fetch(urlApi);
-                    let toJson = await res.json();
-                    this.pokeObj = toJson;
+                    console.log(res);
+                    if(res.status == 200) {
+                        let toJson = await res.json();
+                        this.pokeObj = toJson;
+                        this.pokeStatus = 'ok';
+                    } else {
+                        this.pokeStatus = 'failed';
+                    }
+
+
                 } catch(err) {
                     console.log(err);
                 }

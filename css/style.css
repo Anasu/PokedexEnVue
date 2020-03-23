@@ -6,12 +6,13 @@
 body {
   font-family: 'Lato', sans-serif;
   color: darkslategray;
+  background-color: #eeeeee;
 }
 .consulta, .respuesta {
   display: -webkit-flex;
   display: flex;
   justify-content: center;
-  margin-top: 5vh;
+  padding-top: 5vh;
 }
 .consulta__contenido{
   background-color: white;
@@ -61,19 +62,28 @@ body {
 .respuesta {
   flex-direction: column;
   padding: 0 5%;
+  
 }
 .respuesta img {
   margin-right: 5vw;
   max-height: 150px;
 }
+.pokemon__card {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 2px 4px 4px #bcbcbc;
+}
 .respuesta__titulo{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5vw;
+  margin: 5vw 0;
 }
 .respuesta__nombre{
   text-transform: capitalize;
+}
+.habilidad__texto, .movimiento__texto {
+  width: 75vw;
 }
 .habilidad__texto h3, .habilidad__texto p {
   margin-bottom: 1rem;
@@ -89,7 +99,7 @@ body {
 .respuesta__habilidades {
   margin-bottom: 5vw;
 }
-.respuesta__habilidades h2{
+.respuesta__habilidades h2, .respuesta__movimientos h2{
   text-align: center;
   margin-bottom: 1.5rem;
 }
